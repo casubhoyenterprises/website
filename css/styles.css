@@ -134,7 +134,7 @@ section[id] { scroll-margin-top: 84px; }
     background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.9) 42%, rgba(255,255,255,0.55) 68%, rgba(255,255,255,0.18) 100%);
   }
   .hero--photo .hero-copy { max-width: 100%; }
-  .hero.hero--photo { min-height: clamp(560px, 90vh, 780px); align-items: flex-end; }
+  .hero.hero--photo { min-height: clamp(440px, 70vh, 620px); align-items: flex-end; }
 }
 
 .hero-title { font-size: clamp(2.1rem, 4.6vw, 3.6rem); color: var(--ink); margin-bottom: 22px; }
