@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
+  // Image carousel (used by the Photo band section)
   document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     const track = carousel.querySelector('[data-carousel-track]');
     if (!track) return;
@@ -67,9 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
     if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
 
+    // Keep position correct if the viewport is resized (slide width changes)
     window.addEventListener('resize', () => goTo(index));
   });
 
+  // Lazy-load real <video> elements only after the page has fully loaded,
+  // and only once each video has scrolled near the viewport.
   let pageLoaded = false;
   const pendingLazyVideos = [];
 
@@ -77,6 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (video.dataset.src && !video.src) {
       video.src = video.dataset.src;
       video.load();
+      // Autoplay attribute doesn't reliably fire after a dynamically-assigned
+      // src in every browser, so trigger playback explicitly. muted+catch
+      // keeps this safe against browsers that still block it.
       const playPromise = video.play();
       if (playPromise && typeof playPromise.catch === 'function') {
         playPromise.catch(() => {});

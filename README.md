@@ -1,7 +1,7 @@
 # Casubhoy Enterprises — Website
 
-A static site for Casubhoy Enterprises (interior & construction repairs, plus
-a family of ecommerce ventures).
+A static site for Casubhoy Enterprises' interior & construction repairs
+business. Pure HTML/CSS/JS.
 
 ## File structure
 
